@@ -1,0 +1,19 @@
+{
+    "name": "jetwaves/laravel-bootcamp",
+    "description": "A boot camp who initialize a series of tools for starter of laravel 5.5",
+    "type": "sdk",
+    "require": {},
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jetwaves",
+            "email": "jetwaves@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Jetwaves\\LaravelBootcamp\\": "src/"
+        }
+    }
+}
