@@ -18,7 +18,7 @@ class LaravelBootcampInitConsole extends Command
      *
      * @var string
      */
-    protected $description = "Prepare a laravel API project \r\n\t\t\t 1. route-to-controller integration \r\n\t\t\t 2. Tymon/JWTAuth file publication \r\n\t\t\t 3. xxx  ";
+    protected $description = "Prepare a laravel 5.5 API project \r\n\t\t\t 1. route-to-controller (implicit router) integration \r\n\t\t\t 2. Tymon/JWTAuth integration \r\n\t\t\t ";
 
     /**
      * Create a new command instance.
@@ -39,7 +39,12 @@ class LaravelBootcampInitConsole extends Command
      */
     public function handle()
     {
-        //
-        $this->info('hahahah');
+        $this->info('STEP 1:  Installing jetwaves/route-to-controller to enable Implicit Router ');
+        exec('composer require jetwaves/route-to-controller dev-master', $stepResult);
+//        $this->info('     '.__method__.'() line:'.__line__.'     $stepResult    = '.print_r($stepResult, true));
+
+        $this->info('STEP 2:  Installing tymon/jwt-auth to enable  jwt-Auth [Json Web Token] ');
+        exec('composer require tymon/jwt-auth', $items);
+//        $this->info('     '.__method__.'() line:'.__line__.'     $stepResult    = '.print_r($stepResult, true));
     }
 }

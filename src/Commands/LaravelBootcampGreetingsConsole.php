@@ -18,7 +18,7 @@ class LaravelBootcampGreetingsConsole extends Command
      *
      * @var string
      */
-    protected $description = "say : Hello world";
+    protected $description = "[Example]     say : Hello world";
 
     /**
      * Create a new command instance.
@@ -42,5 +42,6 @@ class LaravelBootcampGreetingsConsole extends Command
         //
         $this->info("\tHello world~~");
         $this->info("\t- From Your fancy package: I'm running well ");
+
     }
 }
