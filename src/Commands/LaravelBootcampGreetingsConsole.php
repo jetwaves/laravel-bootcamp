@@ -4,21 +4,21 @@ namespace Jetwaves\LaravelBootcamp\Commands;
 
 use Illuminate\Console\Command;
 
-class LaravelBootcampInitConsole extends Command
+class LaravelBootcampGreetingsConsole extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'bootcamp:init';
+    protected $signature = 'bootcamp:hi';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Prepare a laravel API project \r\n\t\t\t 1. route-to-controller integration \r\n\t\t\t 2. Tymon/JWTAuth file publication \r\n\t\t\t 3. xxx  ";
+    protected $description = "say : Hello world";
 
     /**
      * Create a new command instance.
@@ -40,6 +40,7 @@ class LaravelBootcampInitConsole extends Command
     public function handle()
     {
         //
-        $this->info('hahahah');
+        $this->info("\tHello world~~");
+        $this->info("\t- From Your fancy package: I'm running well ");
     }
 }
