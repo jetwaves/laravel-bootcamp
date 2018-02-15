@@ -7,14 +7,14 @@
         "jetwaves/laravel-util":"^1.0.1",
         "jetwaves/laravel-explorer":"^1.0.1",
         "jetwaves/laravel-implicit-router":"^1.1",
-        "jetwaves/edit-array-in-file": "^1.1.1"
+        "jetwaves/edit-array-in-file": "^1.1.2"
     },
     "require-dev": {
         "php": ">=5.4.0",
         "jetwaves/laravel-util":"^1.0.1",
         "jetwaves/laravel-explorer":"^1.0.1",
         "jetwaves/laravel-implicit-router":"^1.1",
-        "jetwaves/edit-array-in-file": "^1.1.1"
+        "jetwaves/edit-array-in-file": "^1.1.2"
     },
     "license": "MIT",
     "authors": [
