@@ -94,16 +94,16 @@ class LaravelBootcampInitConsole extends Command
     private function execSteps($stepNumber){
         switch ($stepNumber){
             case '0':
-                $this->info('STEP 0:  Installing package dependencies');
-                $this->installDependencies();
+//                $this->info(PHP_EOL.'STEP 0:  Installing package dependencies');
+//                $this->installDependencies();
                 break;
             case 1:
-                $this->info('STEP 1:  Installing tymon/jwt-auth to enable  jwt-Auth [Json Web Token] ');
+                $this->info(PHP_EOL.'STEP 1:  Installing tymon/jwt-auth to enable  jwt-Auth [Json Web Token] ');
                 exec('composer require tymon/jwt-auth', $stepResult);
                 echo ''.__FILE__.'->'.__method__.'() line:'.__line__.PHP_EOL.'   $stepResult  = '.print_r($stepResult, true).PHP_EOL;
                 break;
             case 2:
-                $this->info('STEP 2:  Deploy database structure migration files  ');
+                $this->info(PHP_EOL.'STEP 2:  Deploy database structure migration files  ');
                 $src = dirname(__DIR__).'/Templates/database/2018_01_01_000000_create_jwt_user_table.php';
                 $dest = LaravelDirUtil55::getMigrationPath().'/2018_01_01_000000_create_jwt_user_table.php';
                 copy($src, $dest);
@@ -117,18 +117,18 @@ class LaravelBootcampInitConsole extends Command
                     "public function register()", 3, $dataToInsert);
                 break;
             case 3:
-                $this->info('STEP 3:  Apply database changes  ');
+                $this->info(PHP_EOL.'STEP 3:  Apply database changes  ');
                 exec('php artisan migrate', $stepResult);
                 echo '   STEP 3   $stepResult  = '.print_r($stepResult, true).PHP_EOL;
                 break;
             case 4:
-                $this->info('STEP 4:  add jwt auth middleware to app/Http/Middleware  ');
+                $this->info(PHP_EOL.'STEP 4:  add jwt auth middleware to app/Http/Middleware  ');
                 $src = dirname(__DIR__).'/Templates/jwt/VerifyJWTToken.php';
                 $dest = LaravelDirUtil55::getMiddlewarePath().'/VerifyJWTToken.php';
                 copy($src, $dest);
                 break;
             case 5:
-                $this->info('STEP 5:  add providers and aliases declaration of tymon/jwt-auth components   ');
+                $this->info(PHP_EOL.'STEP 5:  add providers and aliases declaration of tymon/jwt-auth components   ');
                 $configAppEditor = new Editor( LaravelDirUtil55::getConfigPath().'/app.php');
                 $configAppEditor->where('providers',[], Editor::TYPE_KV_PAIR)
                     ->insert('Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,'.PHP_EOL, Editor::INSERT_TYPE_ARRAY);
@@ -138,7 +138,7 @@ class LaravelBootcampInitConsole extends Command
                 $configAppEditor->save()->flush();
                 break;
             case 6:
-                $this->info('STEP 6:  add jwt-auth as route middleware ');
+                $this->info(PHP_EOL.'STEP 6:  add jwt-auth as route middleware ');
                 $appHttpKernelEditor = new Editor( LaravelDirUtil55::getAppPath().'/Http/Kernel.php');
                 $appHttpKernelEditor->where('$routeMiddleware',[], Editor::TYPE_VARIABLE);
                 $appHttpKernelEditor->insert("'jwt.auth' => \App\Http\Middleware\VerifyJWTToken::class,".PHP_EOL, Editor::INSERT_TYPE_ARRAY);
@@ -150,7 +150,7 @@ class LaravelBootcampInitConsole extends Command
                 echo '   STEP 7   $stepResult  = '.print_r($stepResult, true).PHP_EOL;
                 break;
             case 8:
-                $this->info('STEP 8:  change authentication user model ');
+                $this->info(PHP_EOL.'STEP 8:  change authentication user model ');
                 $configJwtEditor = new Editor( LaravelDirUtil55::getConfigPath().'/jwt.php');
                 $configJwtEditor->where("'user' => 'App\User'",[], Editor::TYPE_RAW );
                 $configJwtEditor->insert("  'user' => 'App\Models\JwtUserModel',", Editor::INSERT_TYPE_AFTER);
@@ -160,14 +160,14 @@ class LaravelBootcampInitConsole extends Command
                 $configJwtEditor->save()->flush();
                 break;
             case 9:
-                $this->info('STEP 9:  add jwt auth user model  ');
+                $this->info(PHP_EOL.'STEP 9:  add jwt auth user model  ');
                 mkdir(LaravelDirUtil55::getModelPath());
                 $src = dirname(__DIR__).'/Templates/Models/JwtUserModel.php';
                 $dest = LaravelDirUtil55::getModelPath().'/JwtUserModel.php';
                 copy($src, $dest);
                 break;
             case 10:
-                $this->info('STEP 10:  modify auth user model ');
+                $this->info(PHP_EOL.'STEP 10:  modify auth user model ');
                 $configAuthEditor = new Editor( LaravelDirUtil55::getConfigPath().'/auth.php');
                 $configAuthEditor->where("providers",[], Editor::TYPE_KV_PAIR );
                 $configAuthEditor->find("model", Editor::FIND_TYPE_ALL);
@@ -176,7 +176,7 @@ class LaravelBootcampInitConsole extends Command
                 $configAuthEditor->save()->flush();
                 break;
             case 11:
-                $this->info('STEP 11:  add jwt auth controllers ');
+                $this->info(PHP_EOL.'STEP 11:  add jwt auth controllers ');
                 $src = dirname(__DIR__).'/Templates/Controllers/JwtUserController.php';
                 $dest = LaravelDirUtil55::getControllerPath().'/JwtUserController.php';
                 copy($src, $dest);
@@ -185,7 +185,7 @@ class LaravelBootcampInitConsole extends Command
                 copy($src, $dest);
                 break;
             case 12:
-                $this->info('STEP 12:  add routing rules for API use'); // must after step 11.
+                $this->info(PHP_EOL.'STEP 12:  add routing rules for API use'); // must after step 11.
                 $routeApiEditor = new Editor( LaravelDirUtil55::getRouterPath().'/api.php');
                 $data =
                     'Route::group([\'middleware\' => \'jwt.auth\'], function () {
