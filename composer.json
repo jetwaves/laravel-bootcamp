@@ -3,10 +3,10 @@
     "description": "A boot camp who initialize a series of tools for starter of laravel 5.5",
     "type": "sdk",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.4.0"
     },
     "require-dev": {
-        "php": ">=5.4.0",
+        "php": ">=5.4.0"
     },
     "license": "MIT",
     "authors": [
@@ -20,5 +20,8 @@
         "psr-4": {
             "Jetwaves\\LaravelBootcamp\\": "src/"
         }
-    }
+    },
+    "bin": [
+        "bin/laravelBoocamp"
+    ]
 }
