@@ -109,11 +109,11 @@ class LaravelBootcampInitConsole extends Command
                 copy($src, $dest);
 
                 $dataToInsert = "use Illuminate\Support\Facades\Schema;".PHP_EOL;
-                Editor::insertIntoFile('../testSource/AppServiceProvider.php',
+                Editor::insertIntoFile(LaravelDirUtil55::getAppPath().'/Providers/AppServiceProvider.php',
                     "use Illuminate\Support\ServiceProvider;", 1, $dataToInsert);
 
                 $dataToInsert = "        Schema::defaultStringLength(191);".PHP_EOL;
-                Editor::insertIntoFile('../testSource/AppServiceProvider.php',
+                Editor::insertIntoFile(LaravelDirUtil55::getAppPath().'/Providers/AppServiceProvider.php',
                     "public function register()", 3, $dataToInsert);
                 break;
             case 3:
