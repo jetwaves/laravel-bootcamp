@@ -11,9 +11,7 @@
 //$app->add(new Laravel\Installer\Console\NewCommand);
 //
 //$app->run();
-
-
-echo 'aaaaa';
+echo 'hello world';
 
 
 

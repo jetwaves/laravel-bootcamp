@@ -1,0 +1,312 @@
+{
+	"info": {
+		"name": "Laravel55_Jwt_integration_Test",
+		"_postman_id": "bbcad0f7-a874-7654-78b4-a27d9f0ad404",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Get + NO auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"test"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get + WITH auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/api/withauth/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"withauth",
+						"test"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "3. User register + NO Params",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test1",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "test@test.com1",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "111111",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/user-register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"user-register"
+					]
+				},
+				"description": "User register without params"
+			},
+			"response": []
+		},
+		{
+			"name": "4. User register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "111111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/user-register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"user-register"
+					]
+				},
+				"description": "User register"
+			},
+			"response": []
+		},
+		{
+			"name": "5. POST  + User login  + NO param",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/user-login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"user-login"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "6. POST  + User login  + WITH invalid param",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "111112",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/user-login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"user-login"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "7. POST  + User login  + WITH ok param",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "111111",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/noauth/user-login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"noauth",
+						"user-login"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get + Auth with token ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hcGkvbm9hdXRoL3VzZXItbG9naW4iLCJpYXQiOjE1MTg4NjE5NDYsImV4cCI6MTUxODg2NTU0NiwibmJmIjoxNTE4ODYxOTQ2LCJqdGkiOiI4THI0THBtbkY5TkRUQTBoIn0._sZ5LG0WgBoDNH_TUQgIbcTcuiKvd4yKWK1uPdUuMmc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/api/withauth/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"withauth",
+						"test"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "9. GET + Get user info from Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hcGkvbm9hdXRoL3VzZXItbG9naW4iLCJpYXQiOjE1MTg4NjE5NDYsImV4cCI6MTUxODg2NTU0NiwibmJmIjoxNTE4ODYxOTQ2LCJqdGkiOiI4THI0THBtbkY5TkRUQTBoIn0._sZ5LG0WgBoDNH_TUQgIbcTcuiKvd4yKWK1uPdUuMmc"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/api/withauth/auth-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"withauth",
+						"auth-user"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
