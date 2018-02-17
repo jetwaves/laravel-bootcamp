@@ -20,5 +20,8 @@
         "psr-4": {
             "Jetwaves\\LaravelBootcamp\\": "src/"
         }
-    }
+    },
+    "bin": [
+        "bin/laravelBoocamp"
+    ]
 }
