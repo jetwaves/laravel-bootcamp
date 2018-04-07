@@ -2,6 +2,10 @@
 A boot camp who initialize a series of tools for starter of laravel 5.5
 
 0. Installation:
+    * Run command:
+    ```php
+    composer require jetwaves/laravel-bootcamp
+    ```
     * Edit config/app.php, add following line into 'providers' array
     ```php 
     Jetwaves\LaravelBootcamp\Providers\LaravelBootcampServiceProvider::class,
